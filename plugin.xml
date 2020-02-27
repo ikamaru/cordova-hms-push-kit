@@ -1,7 +1,2 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-hms-push-kit" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>HMSPushKit</name>
-    <js-module name="HMSPushKit" src="www/HMSPushKit.js">
-        <clobbers target="cordova.plugins.HMSPushKit" />
-    </js-module>
-</plugin>
+<plugin id="cordova-hms-push-kit" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"><name>HMSPushKit</name><js-module name="HMSPushKit" src="www/HMSPushKit.js"><clobbers target="cordova.plugins.HMSPushKit" /></js-module><platform name="android"><config-file parent="/*" target="res/xml/config.xml"><feature name="HMSPushKit"><param name="android-package" value="cordova-hms-push-kit.HMSPushKit" /></feature></config-file><config-file parent="/*" target="AndroidManifest.xml"></config-file><source-file src="src/android/HMSPushKit.java" target-dir="src/cordova-hms-push-kit/HMSPushKit" /></platform></plugin>
