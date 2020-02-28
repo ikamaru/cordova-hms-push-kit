@@ -23,7 +23,7 @@ function addDependencies(buildGradle) {
   var whitespace = match[1];
   
   // modify the line to add the necessary dependencies
-  var agcDependency = whitespace + 'classpath \'com.huawei.agconnect:agcp:1.1.1.300\'' 
+  var agcDependency = whitespace + 'classpath \'com.huawei.agconnect:agcp:1.2.0.300\'' 
 
   var modifiedLine = match[0] + '\n' + agcDependency;
   
@@ -110,7 +110,7 @@ module.exports = {
     var buildGradle = readRootBuildGradle();
 
     // remove any lines we added
-    buildGradle = buildGradle.replace(/(?:^|\r?\n)(.*)com.huawei.cordovahmspushplugin*?(?=$|\r?\n)/g, '');
+    buildGradle = buildGradle.replace(/(?:^|\r?\n)(.*)cordova-hms-push-kit*?(?=$|\r?\n)/g, '');
   
     writeRootBuildGradle(buildGradle);
   }

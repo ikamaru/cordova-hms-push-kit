@@ -35,6 +35,8 @@ public class CordovaHMSPushKit extends CordovaPlugin {
             if (!TextUtils.isEmpty(pushToken)) {
                 Log.i(TAG, "get token:" + pushToken);
                 callbackContext.success(pushToken);
+            }else{
+                callbackContext.success("empty");
             }
         } catch (Exception e) {
             Log.e(TAG, "getToken Failed, " + e);

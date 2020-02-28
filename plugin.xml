@@ -16,7 +16,7 @@
     	<hook type="before_plugin_uninstall" src="scripts/android/before_plugin_uninstall.js" />
     	<framework src="src/android/build.gradle" custom="true" type="gradleReference" />
     	<!-- Push Kit dependency-->
-        <framework src="com.huawei.hms:push:3.0.3.301" />
+        <framework src="com.huawei.hms:push:4.0.0.300" />
 		<config-file 
 			parent="/*" 
 			target="res/xml/config.xml">
