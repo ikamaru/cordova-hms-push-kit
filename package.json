@@ -1,0 +1,25 @@
+{
+  "name": "cordova-hms-push-kit",
+  "version": "0.0.1",
+  "description": "",
+  "cordova": {
+    "id": "cordova-hms-push-kit",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikamaru/cordova-hms-push-kit.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "ikamaru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ikamaru/cordova-hms-push-kit/issues"
+  },
+  "homepage": "https://github.com/ikamaru/cordova-hms-push-kit#readme"
+}

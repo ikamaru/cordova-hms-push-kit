@@ -1,2 +1,39 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-hms-push-kit" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"><name>HMSPushKit</name><js-module name="HMSPushKit" src="www/HMSPushKit.js"><clobbers target="cordova.plugins.HMSPushKit" /></js-module><platform name="android"><config-file parent="/*" target="res/xml/config.xml"><feature name="HMSPushKit"><param name="android-package" value="cordova-hms-push-kit.HMSPushKit" /></feature></config-file><config-file parent="/*" target="AndroidManifest.xml"></config-file><source-file src="src/android/HMSPushKit.java" target-dir="src/cordova-hms-push-kit/HMSPushKit" /></platform></plugin>
+<plugin 
+	id="cordova-hms-push-kit" 
+	version="0.0.1"
+	xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>CordovaHMSPushKit</name>
+	<js-module 
+		name="CordovaHMSPushKit" 
+		src="www/CordovaHMSPushKit.js">
+		<clobbers target="cordova.plugins.CordovaHMSPushKit" />
+	</js-module>
+	<platform name="android">
+		<!-- hook for add maven repositories and agc plugin-->
+    	<hook type="after_plugin_install" src="scripts/android/after_plugin_install.js" />
+    	<hook type="before_plugin_uninstall" src="scripts/android/before_plugin_uninstall.js" />
+    	<framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+    	<!-- Push Kit dependency-->
+        <framework src="com.huawei.hms:push:3.0.3.301" />
+		<config-file 
+			parent="/*" 
+			target="res/xml/config.xml">
+			<feature name="callPlugin">
+				<param 
+					name="android-package" 
+					value="cordova.hms.push.kit.CordovaHMSPushKit" />
+			</feature>
+		</config-file>
+		<config-file 
+			parent="/*"
+			target="AndroidManifest.xml">
+		</config-file>
+		<source-file 
+			src="src/android/CordovaHMSPushKit.java" 
+			target-dir="src/cordova/hms/push/kit/CordovaHMSPushKit" />
+	</platform>
+	<!-- Script help to copy agconnect-services.json to right places-->
+    <hook type="after_prepare" src="scripts/after_prepare.js" />
+</plugin>
