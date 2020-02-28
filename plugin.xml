@@ -20,7 +20,7 @@
 		<config-file 
 			parent="/*" 
 			target="res/xml/config.xml">
-			<feature name="callPlugin">
+			<feature name="CordovaHMSPushKit">
 				<param 
 					name="android-package" 
 					value="cordova.hms.push.kit.CordovaHMSPushKit" />
@@ -32,7 +32,7 @@
 		</config-file>
 		<source-file 
 			src="src/android/CordovaHMSPushKit.java" 
-			target-dir="src/cordova/hms/push/kit/CordovaHMSPushKit" />
+			target-dir="src/cordova/hms/push/kit/CordovaHMSPushKit/" />
 	</platform>
 	<!-- Script help to copy agconnect-services.json to right places-->
     <hook type="after_prepare" src="scripts/after_prepare.js" />
