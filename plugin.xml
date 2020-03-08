@@ -16,7 +16,7 @@
     	<hook type="before_plugin_uninstall" src="scripts/android/before_plugin_uninstall.js" />
     	<framework src="src/android/build.gradle" custom="true" type="gradleReference" />
     	<!-- Push Kit dependency-->
-        <framework src="com.huawei.hms:push:3.0.0.301" />
+        <framework src="com.huawei.hms:push:4.0.2.300" />
         <framework src="androidx.appcompat:appcompat:1.0.2" />
         <framework src="com.google.android.gms:play-services-base:17.1.0" />
 		<config-file 
