@@ -10,6 +10,7 @@
 		src="www/HMSPushKit.js">
 		<clobbers target="cordova.plugins.HMSPushKit" />
 	</js-module>
+	
 	<platform name="android">
 		<!-- hook for add maven repositories and agc plugin-->
     	<hook type="after_plugin_install" src="scripts/android/after_plugin_install.js" />
