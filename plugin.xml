@@ -10,7 +10,7 @@
 		src="www/HMSPushKit.js">
 		<clobbers target="cordova.plugins.HMSPushKit" />
 	</js-module>
-	
+
 	<platform name="android">
 		<!-- hook for add maven repositories and agc plugin-->
     	<hook type="after_plugin_install" src="scripts/android/after_plugin_install.js" />
@@ -44,6 +44,7 @@
 		<source-file src="src/android/HMSPushKit.java" target-dir="src/cordova/hms/push/kit/" />
 		<source-file src="src/android/MyPushService.java" target-dir="src/cordova/hms/push/kit/" />
 		<source-file src="src/android/CallbackContextSingleton.java" target-dir="src/cordova/hms/push/kit/" />
+		
 	</platform>
 	<!-- Script help to copy agconnect-services.json to right places-->
     <hook type="after_prepare" src="scripts/after_prepare.js" />
