@@ -8,6 +8,8 @@ import org.json.JSONException;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.huawei.hmf.tasks.OnCompleteListener;
+import com.huawei.hmf.tasks.Task;
 import com.huawei.hms.api.HuaweiApiAvailability;
 
 import android.text.TextUtils;
@@ -16,6 +18,7 @@ import android.util.Log;
 import com.huawei.agconnect.config.AGConnectServicesConfig;
 import com.huawei.hms.aaid.HmsInstanceId;
 import com.huawei.hms.push.HmsMessageService;
+import com.huawei.hms.push.HmsMessaging;
 
 /**
  * This class echoes a string called from JavaScript.
@@ -39,6 +42,12 @@ public class HMSPushKit extends CordovaPlugin {
         }
         else if(action.equals("getToken")) {
           this.getToken();
+          return true;
+        }else if(action.equals("subscribeToTopic")) {
+          this.subscribeToTopic(args.getString(0));
+          return true;
+        }else if(action.equals("unsubscribeFromTopic")) {
+          this.unsubscribeFromTopic(args.getString(0));
           return true;
         }
         return false;
@@ -98,5 +107,44 @@ public class HMSPushKit extends CordovaPlugin {
                 }
             }
         }.start();
+    }
+
+    private void subscribeToTopic(String topic) {
+      try {
+        HmsMessaging.getInstance(cordova.getContext()).subscribe(topic).addOnCompleteListener(new OnCompleteListener<Void>() {
+          @Override
+          public void onComplete(Task<Void> task) {
+            if (task.isSuccessful()) {
+              Log.i(TAG, "subscribe Complete");
+              CallbackContextSingleton.getInstance().getCallbackContext().success("subscribe to "+topic+" Complete");
+            } else {
+              Log.e(TAG, "subscribe failed: ret=" + task.getException().getMessage());
+              CallbackContextSingleton.getInstance().getCallbackContext().error("subscribe to "+topic+" failed: ret=" + task.getException().getMessage());
+            }
+          }
+        });
+      } catch (Exception e) {
+        Log.e(TAG, "subscribe failed: exception=" + e.getMessage());
+        CallbackContextSingleton.getInstance().getCallbackContext().error("subscribe to "+topic+" failed: exception=" + e.getMessage());
+      }
+    }
+    private void unsubscribeFromTopic(String topic) {
+      try {
+        HmsMessaging.getInstance(cordova.getContext()).unsubscribe(topic).addOnCompleteListener(new OnCompleteListener<Void>() {
+          @Override
+          public void onComplete(Task<Void> task) {
+            if (task.isSuccessful()) {
+              Log.i(TAG, "unsubscribe from "+topic+"  Complete");
+              CallbackContextSingleton.getInstance().getCallbackContext().success("unsubscribe from "+topic+" Complete");
+            } else {
+              Log.e(TAG, "unsubscribe from "+topic+" failed: ret=" + task.getException().getMessage());
+              CallbackContextSingleton.getInstance().getCallbackContext().error("unsubscribe from "+topic+" failed: ret=" + task.getException().getMessage());
+            }
+          }
+        });
+      } catch (Exception e) {
+        Log.e(TAG, "unsubscribe failed: exception=" + e.getMessage());
+        CallbackContextSingleton.getInstance().getCallbackContext().error("unsubscribe from "+topic+" failed: exception=" + e.getMessage());
+      }
     }
 }
