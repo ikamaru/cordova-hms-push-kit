@@ -50,3 +50,51 @@ Plug your android phone into the computer's USB port and install the apk
 ```
 adb install "platforms\android\app\build\outputs\apk\release\app-release.apk"
 ```
+### Documentation
+* cordova.plugins.HMSPushKit.getToken(successCallback,failCallback)
+```
+cordova.plugins.HMSPushKit.getToken(
+			(token) => {
+			    //token
+			},(err) => {
+			    //Error while trying to get the token
+			});
+```
+* cordova.plugins.HMSPushKit.subscribeToTopic(topic,successCallback,failCallback)
+```
+cordova.plugins.HMSPushKit.subscribeToTopic(
+			"aTopicX",
+			(msg) => {
+			    //subscribe to the topic 「aTopicX」 Completed
+			},(err) => {
+			    //subscribe to the topic 「aTopicX」 Failed
+			});
+```
+* cordova.plugins.HMSPushKit.unsubscribeFromTopic(topic,successCallback,failCallback)
+```
+cordova.plugins.HMSPushKit.unsubscribeFromTopic(
+			"aTopicX",
+			(msg) => {
+			    //unsubscribe from the topic 「aTopicX」 Completed
+			},(err) => {
+			    //unsubscribe from the topic 「aTopicX」 Failed
+			});
+```
+* cordova.plugins.HMSPushKit.isHMSAvailable(successCallback,failCallback)
+```
+cordova.plugins.HMSPushKit.isHMSAvailable(
+			(msg) => {
+			    //HMS exists
+			},(err) => {
+			    //HMS doesn't exists
+			});
+```
+* cordova.plugins.HMSPushKit.isGMSAvailable(successCallback,failCallback)
+```
+cordova.plugins.HMSPushKit.isGMSAvailable(
+			(msg) => {
+			    //GMS exists
+			},(err) => {
+			    //GMS doesn't exists
+			});
+```
