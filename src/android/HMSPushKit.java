@@ -87,7 +87,7 @@ public class HMSPushKit extends CordovaPlugin {
                     String pushtoken = HmsInstanceId.getInstance(cordova.getActivity()).getToken(appId, "HCM");
                     if(!TextUtils.isEmpty(pushtoken)) {
                         Log.i(TAG, "get token:" + pushtoken);
-                        CallbackContextSingleton.getInstance().getCallbackContext().success("gettoken : receive token:" + pushtoken);
+                        CallbackContextSingleton.getInstance().getCallbackContext().success(pushtoken);
                         //showLog(pushtoken);
                     }else{
                         Log.i(TAG, "get token: empty"); 

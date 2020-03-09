@@ -16,11 +16,11 @@ public class MyPushService extends HmsMessageService {
     public void onNewToken(String s) {
         super.onNewToken(s);
         Log.i(TAG, "receive token:" + s);
-        Toast.makeText(this, "receive token:" + s, Toast.LENGTH_SHORT).show();
+        /*Toast.makeText(this, "receive token:" + s, Toast.LENGTH_SHORT).show();
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("Copied Text", "receive token:" + s);
-        clipboard.setPrimaryClip(clip);
-        CallbackContextSingleton.getInstance().getCallbackContext().success("onNewToken : receive token:" + s);
+        clipboard.setPrimaryClip(clip);*/
+        CallbackContextSingleton.getInstance().getCallbackContext().success(s);
     }
 
 
